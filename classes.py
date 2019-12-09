@@ -62,13 +62,10 @@ class BankCustomers:
     def __le__(self, other):
         if self.getName() == other.getName():
             if self.getBirthday() == other.getBirthday():
-                print("Yes")
-                return self.getBirthday() < other.getBirthday()
-            else:
-                print('No')
                 return self.getID() < other.getID()
+            else:
+                return self.getBirthday() < other.getBirthday()
         else:
-            print('lol')
             return self.getName() < other.getName()
 
     def __gt__(self, other):
