@@ -26,8 +26,8 @@ class Controller(object):
         self.ui.setupUi(self.clientPage)
         self.ui.btn_add_client.clicked.connect(self.openAccountPage)
         self.ui.btn_delete.clicked.connect(self.btnDeleteClicked)
-        self.ui.btn_delete.clicked.connect(self.ui.listView.clear)
-        self.ui.btn_delete.clicked.connect(self.reloadData)
+#         self.ui.btn_delete.clicked.connect(self.ui.listView.clear)
+#         self.ui.btn_delete.clicked.connect(self.reloadData)
         self.ui.btn_modify.clicked.connect(self.btnModifyClicked)
         self.ui.btn_done.clicked.connect(self.btnFilterClicked)
         self.reloadData()
@@ -132,7 +132,9 @@ class Controller(object):
                     self.saveToFile()
                     for Customer in self.listBankCustomer:
                         self.ui.listView.addItem(Customer.__str__())
-
+        self.ui.listView.clear()
+        self.reloadData()
+        
     def btnModifyClicked(self):
         if not self.ui.listView.currentItem():
             msg = QtWidgets.QMessageBox()
